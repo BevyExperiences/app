@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import css from './SectionLiveDemo.module.css';
+import { PrimaryLightButton } from '../Button/Button';
 
 const SectionLiveDemo = () => {
   return (
@@ -406,7 +407,7 @@ const SectionLiveDemo = () => {
             Want to learn more? Our pleasure! Book a demo with our founder and dedicate experience
             coordinators and get 15% off your first booking.
           </div>
-          <div className={css.sectionrightcontentaction}>Give it a try</div>
+          <PrimaryLightButton>Give it a try</PrimaryLightButton>
         </div>
       </div>
     </div>

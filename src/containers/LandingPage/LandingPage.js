@@ -3,7 +3,7 @@ import React from 'react';
 import { bool, object } from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-
+import { withRouter } from 'react-router-dom';
 import { Page, LayoutSingleColumn } from '../../components';
 import { propTypes } from '../../util/types';
 import TopbarContainer from '../../containers/TopbarContainer/TopbarContainer';
@@ -21,12 +21,13 @@ import SectionLiveDemo from '../../components/SectionLiveDemo/SectionLiveDemo';
 import css from './LandingPage.module.css';
 
 export const LandingPageComponent = props => {
+  const { history } = props;
   return (
     <Page title={'Home'} scrollingDisabled={false}>
       <LayoutSingleColumn topbar={<TopbarContainer />} footer={<FooterContainer />}>
         <div className={css.root}>
           <div className={css.content}>
-            <SectionCaribbean />
+            <SectionCaribbean history={history} />
             <SectionTeamExperience />
             <SectionCustomerService />
             <SectionFeaturedExperience />
@@ -53,6 +54,9 @@ const mapStateToProps = state => {
   return { pageAssetsData, inProgress, error };
 };
 
-const LandingPage = compose(connect(mapStateToProps))(LandingPageComponent);
+const LandingPage = compose(
+  withRouter,
+  connect(mapStateToProps)
+)(LandingPageComponent);
 
 export default LandingPage;

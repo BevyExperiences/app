@@ -1,12 +1,34 @@
 import React, { useState } from 'react';
 
-import { Page, LayoutSingleColumn, DashboardMenu, NamedLink } from '../../../components';
+import {
+  Page,
+  LayoutSingleColumn,
+  DashboardMenu,
+  SecondaryButton,
+  PrimaryDarkButton
+} from '../../../components';
 import TopbarContainer from '../../TopbarContainer/TopbarContainer';
 import FooterContainer from '../../FooterContainer/FooterContainer';
 
 import css from './ExperiencesHomePage.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { pathByRouteName } from '../../../util/routes';
+import routeConfiguration from '../../../routing/routeConfiguration';
+import { compose } from 'redux';
+import { withRouter } from 'react-router-dom';
+
 export const ExperiencesHomePage = props => {
   const [category, setCategory] = useState('all');
+
+  const exploreExperiences = () => {
+    const { history } = props;
+    if (history) {
+      history.push(pathByRouteName('ExperiencesExplorePage', routeConfiguration()));
+    } else {
+      alert('history is undefined')
+    }
+  };
 
   return (
     <Page title={'Experiences'} className={css.page} scrollingDisabled={false}>
@@ -36,21 +58,10 @@ export const ExperiencesHomePage = props => {
                 </div>
               </div>
               <div className={css.headeraction}>
-                <div className={css.headeractionbtn}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="22"
-                    viewBox="0 0 18 22"
-                    fill="none"
-                  >
-                    <path
-                      d="M10.2857 3.92829C10.2857 3.21713 9.71119 2.64258 9.00003 2.64258C8.28887 2.64258 7.71431 3.21713 7.71431 3.92829V9.71401H1.9286C1.21744 9.71401 0.642883 10.2886 0.642883 10.9997C0.642883 11.7109 1.21744 12.2854 1.9286 12.2854H7.71431V18.0711C7.71431 18.7823 8.28887 19.3569 9.00003 19.3569C9.71119 19.3569 10.2857 18.7823 10.2857 18.0711V12.2854H16.0715C16.7826 12.2854 17.3572 11.7109 17.3572 10.9997C17.3572 10.2886 16.7826 9.71401 16.0715 9.71401H10.2857V3.92829Z"
-                      fill="#06C167"
-                    />
-                  </svg>
+                <PrimaryDarkButton className={css.iconButton}>
+                  <FontAwesomeIcon icon={faPlus} color="#06c167" size="lg" />
                   <div>Create event</div>
-                </div>
+                </PrimaryDarkButton>
               </div>
             </div>
             <div className={css.content}>
@@ -62,9 +73,7 @@ export const ExperiencesHomePage = props => {
                     creators, brands, and venues.
                   </div>
                 </div>
-                <NamedLink className={css.contentbtn} name="ExperiencesExplorePage">
-                  Explore Experiences
-                </NamedLink>
+                <SecondaryButton onClick={exploreExperiences}>Explore Experiences</SecondaryButton>
               </div>
             </div>
           </div>
@@ -74,4 +83,4 @@ export const ExperiencesHomePage = props => {
   );
 };
 
-export default ExperiencesHomePage;
+export default compose(withRouter)(ExperiencesHomePage);

@@ -36,27 +36,7 @@
   width: 28.125px;
   height: 25px;
 }
-.buttonSurvey {
-  display: flex;
-  height: 53px;
-  padding: 15px 30px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 7px;
-  background: var(--extended-06-c-167, #06c167);
-  color: var(--primary-1-b-242-d, #1b242d);
-  text-align: center;
-  font-family: Poppins;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 24px; /* 150% */
-  @media (--viewLargeScreenMax) {
-    width: 100%;
-    flex-direction: column;
-  }
-}
+
 .highlight {
   color: var(--extended-97-eae-5, #97eae5);
 

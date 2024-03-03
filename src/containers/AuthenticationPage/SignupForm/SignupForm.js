@@ -81,19 +81,6 @@ const SignupFormComponent = props => (
       return (
         <Form className={classes} onSubmit={handleSubmit}>
           <div>
-            <FieldTextInput
-              type="email"
-              id={formId ? `${formId}.email` : 'email'}
-              name="email"
-              autoComplete="email"
-              label={intl.formatMessage({
-                id: 'SignupForm.emailLabel',
-              })}
-              placeholder={intl.formatMessage({
-                id: 'SignupForm.emailPlaceholder',
-              })}
-              validate={validators.composeValidators(emailRequired, emailValid)}
-            />
             <div className={css.name}>
               <FieldTextInput
                 className={css.firstNameRoot}
@@ -132,6 +119,19 @@ const SignupFormComponent = props => (
                 )}
               />
             </div>
+            <FieldTextInput
+              type="email"
+              id={formId ? `${formId}.email` : 'email'}
+              name="email"
+              autoComplete="email"
+              label={intl.formatMessage({
+                id: 'SignupForm.emailLabel',
+              })}
+              placeholder={intl.formatMessage({
+                id: 'SignupForm.emailPlaceholder',
+              })}
+              validate={validators.composeValidators(emailRequired, emailValid)}
+            />
             <FieldTextInput
               className={css.password}
               type="password"

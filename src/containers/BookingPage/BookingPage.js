@@ -4,7 +4,7 @@ import { bool, object } from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-import { Page, LayoutSingleColumn } from '../../components';
+import { Page, LayoutSingleColumn, PrimaryButton, PrimaryLightButton } from '../../components';
 import { propTypes } from '../../util/types';
 import TopbarContainer from '../../containers/TopbarContainer/TopbarContainer';
 import FooterContainer from '../../containers/FooterContainer/FooterContainer';
@@ -186,7 +186,7 @@ export const BookingPageComponent = props => {
                 </div>
               </div>
               <div className={css.section_live_demo_button_container}>
-                <div className={css.section_live_demo_button}>Give it a try</div>
+                <PrimaryLightButton>Give it a try</PrimaryLightButton>
               </div>
             </div>
           </div>

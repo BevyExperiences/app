@@ -165,6 +165,7 @@ class TopbarComponent extends Component {
       sendVerificationEmailError,
       showGenericError,
       config,
+      history,
     } = this.props;
 
     let isSidebarOpened = false;
@@ -241,6 +242,7 @@ class TopbarComponent extends Component {
               onLogout={this.handleLogout}
               onSearchSubmit={this.handleSubmit}
               appConfig={config}
+              history={history}
             />
           </div>
           <div className={css.desktop}>
@@ -256,6 +258,7 @@ class TopbarComponent extends Component {
               onLogout={this.handleLogout}
               onSearchSubmit={this.handleSubmit}
               appConfig={config}
+              history={history}
             />
           </div>
           <Modal

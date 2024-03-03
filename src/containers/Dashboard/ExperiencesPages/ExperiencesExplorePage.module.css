@@ -4,6 +4,8 @@
   /* Expand to the available space */
   flex-grow: 1;
   display: flex;
+  max-width: 1920px;
+  width: 100vw;
   flex-direction: row;
   gap: 30px;
   padding-bottom: 60px;
@@ -182,4 +184,11 @@
 .fontIcon {
   font-size: 18px;
   color: #06C167;
+}
+
+.iconButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
 }
