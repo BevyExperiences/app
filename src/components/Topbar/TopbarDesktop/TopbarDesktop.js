@@ -27,7 +27,6 @@ const TopbarDesktop = props => {
   const {
     className,
     appConfig,
-    history,
     currentPage,
     rootClassName,
     currentUserHasListings,
@@ -84,21 +83,26 @@ const TopbarDesktop = props => {
             Dashboard
           </NamedLink>
           <div className={css.headeraction}>
-            <FontAwesomeIcon icon={faMagnifyingGlass} color='black' className={css.topMenuIcon} />
+            <FontAwesomeIcon icon={faMagnifyingGlass} color="black" className={css.topMenuIcon} />
             <div className={css.headeractionbar}></div>
-            <FontAwesomeIcon icon={faBars} color='black' onClick={handleSidebar} className={css.topMenuIcon} />
+            <FontAwesomeIcon
+              icon={faBars}
+              color="black"
+              onClick={handleSidebar}
+              className={css.topMenuIcon}
+            />
           </div>
         </div>
       </nav>
       {isSidebarOpened && (
         <Sidebar
           isAuthenticated={isAuthenticated}
-          history={history}
           onClickMenu={handleSidebar}
           onLogout={() => {
             onLogout();
             handleSidebar();
           }}
+          history={props.history}
         />
       )}
     </>

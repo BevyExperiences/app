@@ -4,6 +4,7 @@ import css from './SectionSurvey.module.css';
 import SvgChart from '../../assets/images/chart.svg';
 import SvgBackR from '../../assets/images/survey-back-r.svg';
 import SvgBackB from '../../assets/images/survey-back-b.svg';
+import { PrimaryLightButton } from '../Button/Button';
 
 const SectionSurvey = () => {
   return (
@@ -17,7 +18,7 @@ const SectionSurvey = () => {
         </div>
       </div>
       <div className={css.section_r}>
-        <div className={css.buttonSurvey}>Fill Out Our Brief Survey</div>
+        <PrimaryLightButton>Fill Out Our Brief Survey</PrimaryLightButton>
       </div>
       <img className={css.backR} src={SvgBackR} />
       <img className={css.backB} src={SvgBackB} />

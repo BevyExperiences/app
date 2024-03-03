@@ -21,6 +21,7 @@ import {
   faShieldHalved,
   faShieldVirus,
 } from '@fortawesome/free-solid-svg-icons';
+import { PrimaryButton, PrimaryLightButton } from '../../components/Button/Button';
 
 export const BecomeHostPageComponent = props => {
   return (
@@ -40,7 +41,7 @@ export const BecomeHostPageComponent = props => {
                     influential teams.
                   </div>
                 </div>
-                <div className={css.section_head_button}>Become a Host</div>
+                <PrimaryButton>Become a host</PrimaryButton>
               </div>
               <div className={css.section_head_r}></div>
             </div>
@@ -88,7 +89,7 @@ export const BecomeHostPageComponent = props => {
             <div className={css.section_become_host}>
               <div className={css.section_become_host_l}>
                 <h3>There is nothing better than Bevy Hosts.</h3>
-                <div className={css.section_head_button}>Become a Host</div>
+                <PrimaryButton>Become a host</PrimaryButton>
               </div>
               <div className={css.section_become_host_r}>
                 <div className={css.secton_become_host_r_item}>
@@ -143,7 +144,7 @@ export const BecomeHostPageComponent = props => {
                     ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum
                     lorem ipsum
                   </div>
-                  <div className={css.section_case_study_content_button}>Become a host</div>
+                  <PrimaryLightButton className={css.sectionCaseStudyName}>Become a host</PrimaryLightButton>
                 </div>
               </div>
             </div>

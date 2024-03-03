@@ -169,6 +169,13 @@
   }
 }
 
+.iconButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
 .content {
   width: 1130px;
   height: 356px;
@@ -230,23 +237,4 @@
   font-weight: 400;
   line-height: 140%;
   /* 28px */
-}
-
-.contentbtn {
-  display: flex;
-  height: 53px;
-  padding: 15px 30px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 7px;
-  background: var(--primary-ffffff, #fff);
-  color: var(--primary-1-b-242-d, #1b242d);
-  text-align: center;
-  font-family: Poppins;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 24px;
-  /* 150% */
 }

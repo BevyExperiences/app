@@ -143,6 +143,12 @@ export const PrimaryButton = props => {
 };
 PrimaryButton.displayName = 'PrimaryButton';
 
+export const PrimaryLightButton = props => {
+  const classes = classNames(props.rootClassName || css.primaryLightButtonRoot, css.primaryLightButton);
+  return <Button {...props} rootClassName={classes} />;
+};
+PrimaryLightButton.displayName = 'PrimaryLightButton';
+
 export const PrimaryButtonInline = props => {
   const classes = classNames(props.rootClassName || css.primaryButtonInlineRoot, css.primaryButton);
   return <Button {...props} rootClassName={classes} />;

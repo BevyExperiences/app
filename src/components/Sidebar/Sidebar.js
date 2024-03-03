@@ -11,15 +11,22 @@ import routeConfiguration from '../../routing/routeConfiguration';
 const Sidebar = props => {
   const location = useLocation();
   const [currentLocation, setCurrentLocation] = useState(location.pathname);
-  const { isAuthenticated, onClickMenu, onLogout } = props;
+  const { isAuthenticated, onClickMenu, onLogout, history } = props;
 
   const onDashboard = e => {
-    console.log('open up dashboard page');
+    if (history) {
+      history.push(pathByRouteName('ExperiencesHomePage', routeConfiguration()));
+    } else {
+      alert('history is undefined');
+    }
   };
 
   const onLogin = e => {
-    const { history } = props;
-    history.push(pathByRouteName('LoginPage', routeConfiguration()));
+    if (history) {
+      history.push(pathByRouteName('LoginPage', routeConfiguration()));
+    } else {
+      alert('history is undefined');
+    }
   };
 
   return (
@@ -27,7 +34,7 @@ const Sidebar = props => {
       <div className={css.sectionbody} onClick={onClickMenu}></div>
       <div className={css.sectionsidebar}>
         <FontAwesomeIcon
-          size='2x'
+          size="2x"
           className={css.closeIcon}
           icon={faXmarkCircle}
           color="#000"

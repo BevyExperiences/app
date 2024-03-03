@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import css from './SectionYearExperience.module.css';
+import { InlineTextButton, PrimaryButton, PrimaryButtonInline, PrimaryDarkButton, PrimaryLightButton, SecondaryButton } from '../Button/Button';
 
 const SectionYearExperience = () => {
   return (
@@ -27,7 +28,7 @@ const SectionYearExperience = () => {
               aspects or events, retreats and conferences and are ready to assist you.
             </div>
           </div>
-          <div className={css.sectionleftbutton}>Get to know the team</div>
+          <PrimaryLightButton>Get to know the team</PrimaryLightButton>
         </div>
         <div className={css.sectionright}></div>
       </div>

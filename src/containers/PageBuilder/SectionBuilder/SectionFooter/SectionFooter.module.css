@@ -116,7 +116,7 @@
 
   &:hover {
     text-decoration: none;
-    color: #06C167;
+    color: var(--colorSuccessLight);
   }
 }
 

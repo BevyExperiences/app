@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 
-import { Page, LayoutSingleColumn, DashboardMenu, ExperienceCard } from '../../../components';
+import {
+  Page,
+  LayoutSingleColumn,
+  DashboardMenu,
+  ExperienceCard,
+  PrimaryDarkButton,
+} from '../../../components';
 import TopbarContainer from '../../TopbarContainer/TopbarContainer';
 import FooterContainer from '../../FooterContainer/FooterContainer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -43,10 +49,14 @@ export const ExperiencesExplorePage = props => {
                 </div>
               </div>
               <div className={css.headeraction}>
-                <div className={css.headeractionbtn}>
+                <PrimaryDarkButton className={css.iconButton}>
                   <FontAwesomeIcon icon={faPlus} className={css.fontIcon} />
                   <div>Create event</div>
-                </div>
+                </PrimaryDarkButton>
+                {/* <div className={css.headeractionbtn}>
+                  <FontAwesomeIcon icon={faPlus} className={css.fontIcon} />
+                  <div>Create event</div>
+                </div> */}
               </div>
             </div>
             <div className={css.content}>
