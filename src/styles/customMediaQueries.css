@@ -17,3 +17,4 @@
 
 @custom-media --viewXLargeScreenMin (min-width: 1321px);
 @custom-media --viewXLargeScreenMax (max-width: 1920px);
+@custom-media --viewXXLargeScreenMin (min-width: 1921px);
