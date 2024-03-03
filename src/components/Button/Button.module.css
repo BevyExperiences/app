@@ -14,6 +14,13 @@
   padding: 0;
 }
 
+.primaryDarkButtonRoot {
+  composes: buttonDarkPrimary from global;
+
+  /* Clear padding that is set for link elements looking like buttons */
+  padding: 0;
+}
+
 .primaryButtonInlineRoot {
   composes: buttonPrimaryInline from global;
 }
@@ -39,6 +46,9 @@
 
 .primaryButton {
   /* Class handle for primary button state styles */
+}
+.primaryDarkButton {
+  /* Class handle for primary dark button state styles */
 }
 .secondaryButton {
   /* Class handle for secondary button state styles */

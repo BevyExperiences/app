@@ -164,6 +164,12 @@ export const SecondaryButtonInline = props => {
 };
 SecondaryButton.displayName = 'SecondaryButton';
 
+export const PrimaryDarkButton = props => {
+  const classes = classNames(props.rootClassName || css.primaryDarkButtonRoot, css.primaryDarkButton);
+  return <Button {...props} rootClassName={classes} />;
+};
+PrimaryButton.displayName = 'PrimaryButton';
+
 export const InlineTextButton = props => {
   const classes = classNames(props.rootClassName || css.inlineTextButtonRoot, css.inlineTextButton);
   return <Button {...props} rootClassName={classes} />;

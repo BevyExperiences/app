@@ -5,6 +5,8 @@
   flex-grow: 1;
   display: flex;
   flex-direction: row;
+  max-width: 1920px;
+  width: 100vw;
   gap: 30px;
   padding-bottom: 60px;
 

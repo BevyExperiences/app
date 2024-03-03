@@ -476,3 +476,7 @@
   flex-direction: row;
   gap: 17px;
 }
+
+.topMenuIcon {
+  cursor: pointer;
+}

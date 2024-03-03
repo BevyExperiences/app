@@ -38,9 +38,12 @@
 
   /* Colors used for different functions (like error texts) */
 
-  --colorSuccess: #2ecc71;
-  --colorSuccessDark: #239954;
+  --colorSuccess: #227667;
+  --colorSuccessDark: #069167;
   --colorSuccessLight: #f0fff6;
+  --colorAction: #1B242D;
+  --colorActionDark: #0B141D;
+  --colorActionLight: #2b343d;
   --colorFail: #ff0000;
   --colorFailLight: #fff0f0;
   --colorAttention: #ffaa00;
@@ -1049,6 +1052,63 @@ textarea {
   text-decoration: none;
 }
 .buttonPrimary:disabled {
+  box-shadow: none;
+  cursor: not-allowed;
+  background-color: var(--colorGrey100);
+  color: var(--colorGrey700);
+}
+/**
+ * Styles for <PrimaryDarkButton>
+ */
+.buttonDarkPrimary {
+  /* button defaults */
+  display: block;
+  width: 100%;
+  min-height: 56px;
+  margin: 0;
+
+  /* Padding is only for <a> elements where button styles are applied,
+  buttons elements should have zero padding */
+  padding: 16px 0 16px 0;
+
+  transition: all var(--transitionStyleButton);
+  cursor: pointer;
+
+  /*
+   * Font: most font styles are defined earlier in this file
+   */
+  font-weight: var(--fontWeightSemiBold);
+
+  /* Button text styles */
+  /* Primary button text is centered without decorations */
+  text-align: center;
+  text-decoration: none;
+
+  /* Button borders */
+  /* Primary button has no borders */
+  border: none;
+  border-radius: var(--borderRadiusMedium);
+
+  /* Button colors */
+  /* Primary button uses success color */
+  background-color: var(--colorAction);
+  color: var(--colorWhite);
+
+  @media (--viewportMedium) {
+    padding: 20px 0 20px 0;
+  }
+}
+.buttonDarkPrimary:focus,
+.buttonDarkPrimary:hover {
+  outline: none;
+  box-shadow: var(--boxShadowButton);
+  background-color: var(--colorActionDark);
+  color: var(--colorWhite);
+}
+.buttonDarkPrimary:hover {
+  text-decoration: none;
+}
+.buttonDarkPrimary:disabled {
   box-shadow: none;
   cursor: not-allowed;
   background-color: var(--colorGrey100);

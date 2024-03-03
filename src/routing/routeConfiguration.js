@@ -99,10 +99,10 @@ const RedirectToLandingPage = () => <NamedRedirect name="LandingPage" />;
 // Our routes are exact by default.
 // See behaviour from Routes.js where Route is created.
 const routeConfiguration = (layoutConfig) => {
-  const SearchPage = layoutConfig.searchPage?.variantType === 'map'
+  const SearchPage = layoutConfig?.searchPage?.variantType === 'map'
     ? SearchPageWithMap
     : SearchPageWithGrid;
-  const ListingPage = layoutConfig.listingPage?.variantType === 'carousel'
+  const ListingPage = layoutConfig?.listingPage?.variantType === 'carousel'
     ? ListingPageCarousel
     : ListingPageCoverPhoto;
 
@@ -482,7 +482,7 @@ const routeConfiguration = (layoutConfig) => {
     //   loadData: pageDataLoadingAPI.FaqPage.loadData,
     // },
     {
-      path: '/experiences/category',
+      path: '/experiences',
       name: 'ExperiencesPage',
       component: Experiences,
       loadData: pageDataLoadingAPI.FaqPage.loadData,
@@ -514,6 +514,7 @@ const routeConfiguration = (layoutConfig) => {
     {
       path: '/dashboard/experiences',
       name: 'ExperiencesHomePage',
+      auth: true,
       component: ExperiencesHomePage,
       loadData: pageDataLoadingAPI.FaqPage.loadData,
     },
@@ -521,7 +522,6 @@ const routeConfiguration = (layoutConfig) => {
       path: '/dashboard/experiences/explore',
       name: 'ExperiencesExplorePage',
       component: ExperiencesExplorePage,
-      loadData: pageDataLoadingAPI.FaqPage.loadData,
     },
     {
       path: '/dashboard/modal/rsvp_list',
