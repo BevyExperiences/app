@@ -42,6 +42,10 @@ import {
 // Import modules from this directory
 import EditListingWizardTab, {
   DETAILS,
+  CATEGORY,
+  PARAMETERS,
+  PAYOUT,
+  PREVIEW,
   PRICING,
   PRICING_AND_STOCK,
   DELIVERY,

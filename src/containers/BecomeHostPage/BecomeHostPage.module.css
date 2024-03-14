@@ -73,6 +73,10 @@
     font-size: 35px
   }
 }
+.section_become_host_button:hover {
+  text-decoration: none;
+}
+
 .section_head_l_desc_content {
   width: 390px;
   color: var(--primary-1-b-242-d, #1b242d);

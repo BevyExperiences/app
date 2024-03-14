@@ -8,6 +8,8 @@ import { Page, LayoutSingleColumn } from '../../components';
 import { propTypes } from '../../util/types';
 import TopbarContainer from '../../containers/TopbarContainer/TopbarContainer';
 import FooterContainer from '../../containers/FooterContainer/FooterContainer';
+import NamedLink from '../../components/NamedLink/NamedLink';
+
 
 import css from './BecomeHostPage.module.css';
 import SectionSurvey from '../../components/SectionSurvey/SectionSurvey';
@@ -41,7 +43,11 @@ export const BecomeHostPageComponent = props => {
                     influential teams.
                   </div>
                 </div>
-                <PrimaryButton>Become a host</PrimaryButton>
+                <PrimaryButton>
+                  <NamedLink className={css.section_become_host_button} name="NewListingPage">
+                    Become a host
+                  </NamedLink>
+                </PrimaryButton>
               </div>
               <div className={css.section_head_r}></div>
             </div>

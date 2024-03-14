@@ -22,17 +22,25 @@ import EditListingPricingAndStockPanel from './EditListingPricingAndStockPanel/E
 
 import css from './EditListingWizardTab.module.css';
 
+export const CATEGORY = 'category';
 export const DETAILS = 'details';
+export const PARAMETERS = 'parameters';
+export const PHOTOS = 'photos';
+export const AVAILABILITY = 'availability';
+export const PAYOUT = 'payout';
+export const PREVIEW = 'preview'
 export const PRICING = 'pricing';
 export const PRICING_AND_STOCK = 'pricing-and-stock';
 export const DELIVERY = 'delivery';
 export const LOCATION = 'location';
-export const AVAILABILITY = 'availability';
-export const PHOTOS = 'photos';
 
 // EditListingWizardTab component supports these tabs
 export const SUPPORTED_TABS = [
+  CATEGORY,
   DETAILS,
+  PARAMETERS,
+  PAYOUT,
+  PREVIEW,
   PRICING,
   PRICING_AND_STOCK,
   DELIVERY,
