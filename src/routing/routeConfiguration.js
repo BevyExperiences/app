@@ -515,12 +515,15 @@ const routeConfiguration = (layoutConfig) => {
       path: '/dashboard/experiences',
       name: 'ExperiencesHomePage',
       auth: true,
+      authPage: 'LoginPage',
       component: ExperiencesHomePage,
       loadData: pageDataLoadingAPI.FaqPage.loadData,
     },
     {
       path: '/dashboard/experiences/explore',
       name: 'ExperiencesExplorePage',
+      auth: true,
+      authPage: 'LoginPage',
       component: ExperiencesExplorePage,
     },
     {

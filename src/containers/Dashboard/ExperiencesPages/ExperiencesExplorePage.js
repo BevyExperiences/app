@@ -25,7 +25,7 @@ export const ExperiencesExplorePage = props => {
     <Page title={'Experiences'} className={css.page} scrollingDisabled={false}>
       <LayoutSingleColumn topbar={<TopbarContainer />} footer={<FooterContainer />}>
         <div className={css.root}>
-          <DashboardMenu active={1} hover={2} />
+          <DashboardMenu active={1} />
           <div className={css.container}>
             <div className={css.header}>
               <div className={css.headermenu}>

@@ -18,7 +18,7 @@ export const FavoriteResultsPage = props => {
     <Page title={'Polls'} className={css.page} scrollingDisabled={false}>
       <LayoutSingleColumn topbar={<TopbarContainer />} footer={<FooterContainer />}>
         <div className={css.root}>
-          <DashboardMenu active={3} hover={2} />
+          <DashboardMenu active={3} />
           <div className={css.content}>
             <div className={css.top}>
               <div className={css.titleContainer}>

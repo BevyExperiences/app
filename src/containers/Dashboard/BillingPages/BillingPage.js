@@ -11,7 +11,7 @@ export const BillingPage = props => {
     <Page title={'Billing'} className={css.page} scrollingDisabled={false}>
       <LayoutSingleColumn topbar={<TopbarContainer />} footer={<FooterContainer />}>
         <div className={css.root}>
-          <DashboardMenu active={5} hover={0} />
+          <DashboardMenu active={5} />
           <div className={css.content}>
             <div className={css.title}>Billing</div>
             <div className={css.details}>
