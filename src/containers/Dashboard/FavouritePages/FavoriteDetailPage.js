@@ -17,7 +17,7 @@ export const FavoriteDetailPage = props => {
     <Page title={'Favourites'} className={css.page} scrollingDisabled={false}>
       <LayoutSingleColumn topbar={<TopbarContainer />} footer={<FooterContainer />}>
         <div className={css.root}>
-          <DashboardMenu active={2} hover={0} />
+          <DashboardMenu active={2} />
           <div className={css.content}>
             <div className={css.titleArea}>
               <div className={css.titleRow}>

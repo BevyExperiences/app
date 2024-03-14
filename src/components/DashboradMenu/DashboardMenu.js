@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import NamedLink from '../NamedLink/NamedLink';
 import css from './DashboardMenu.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,9 +10,28 @@ import {
   faUser,
 } from '@fortawesome/free-regular-svg-icons';
 import { faChartColumn, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { logout } from '../../ducks/auth.duck';
+import { pathByRouteName } from '../../util/routes';
+import { useRouteConfiguration } from '../../context/routeConfigurationContext';
 
 const DashboardMenu = props => {
   const { active } = props;
+
+  const handleLogout = () => {
+    const routeConfiguration = useRouteConfiguration();
+    logout().then(() => {
+      const path = pathByRouteName('LandingPage', routeConfiguration);
+      // In production we ensure that data is really lost,
+      // but in development mode we use stored values for debugging
+      if (appSettings.dev) {
+        history.push(path);
+      } else if (typeof window !== 'undefined') {
+        window.location = path;
+      }
+
+      console.log('logged out'); // eslint-disable-line
+    });
+  };
   return (
     <div className={css.menuContainer}>
       <NamedLink name="ExperiencesHomePage" style={{ width: '100%' }}>
@@ -51,7 +70,7 @@ const DashboardMenu = props => {
           <div>Profile</div>
         </div>
       </NamedLink>
-      <div className={active == 7 ? css.menuitemactive : css.menuitem}>
+      <div className={css.menuitem} onClick={handleLogout}>
         <FontAwesomeIcon icon={faRightFromBracket} color="#227667" size="lg" />
         <div>Logout</div>
       </div>
