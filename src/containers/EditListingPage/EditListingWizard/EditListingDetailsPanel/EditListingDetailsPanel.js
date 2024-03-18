@@ -153,21 +153,21 @@ const setNoAvailabilityForUnbookableListings = processAlias => {
   return isBookingProcessAlias(processAlias)
     ? {}
     : {
-        availabilityPlan: {
-          type: 'availability-plan/time',
-          timezone: 'Etc/UTC',
-          entries: [
-            // Note: "no entries" is the same as seats=0 for every entry.
-            // { dayOfWeek: 'mon', startTime: '00:00', endTime: '00:00', seats: 0 },
-            // { dayOfWeek: 'tue', startTime: '00:00', endTime: '00:00', seats: 0 },
-            // { dayOfWeek: 'wed', startTime: '00:00', endTime: '00:00', seats: 0 },
-            // { dayOfWeek: 'thu', startTime: '00:00', endTime: '00:00', seats: 0 },
-            // { dayOfWeek: 'fri', startTime: '00:00', endTime: '00:00', seats: 0 },
-            // { dayOfWeek: 'sat', startTime: '00:00', endTime: '00:00', seats: 0 },
-            // { dayOfWeek: 'sun', startTime: '00:00', endTime: '00:00', seats: 0 },
-          ],
-        },
-      };
+      availabilityPlan: {
+        type: 'availability-plan/time',
+        timezone: 'Etc/UTC',
+        entries: [
+          // Note: "no entries" is the same as seats=0 for every entry.
+          // { dayOfWeek: 'mon', startTime: '00:00', endTime: '00:00', seats: 0 },
+          // { dayOfWeek: 'tue', startTime: '00:00', endTime: '00:00', seats: 0 },
+          // { dayOfWeek: 'wed', startTime: '00:00', endTime: '00:00', seats: 0 },
+          // { dayOfWeek: 'thu', startTime: '00:00', endTime: '00:00', seats: 0 },
+          // { dayOfWeek: 'fri', startTime: '00:00', endTime: '00:00', seats: 0 },
+          // { dayOfWeek: 'sat', startTime: '00:00', endTime: '00:00', seats: 0 },
+          // { dayOfWeek: 'sun', startTime: '00:00', endTime: '00:00', seats: 0 },
+        ],
+      },
+    };
 };
 
 /**
@@ -184,15 +184,33 @@ const setNoAvailabilityForUnbookableListings = processAlias => {
  */
 const getInitialValues = (props, existingListingTypeInfo, listingTypes, listingFieldsConfig) => {
   const { description, title, publicData, privateData } = props?.listing?.attributes || {};
-  const { listingType } = publicData;
+  const { 
+    listingType,
+    subcategory,
+    duration_hour,
+    duration_minute,
+    bring_items,
+    how_it_works,
+    physical_items,
+    meet_hosts,
+    instabook
+  } = publicData;
 
   // Initial values for the form
   return {
     title,
     description,
+    subcategory,
+    duration_hour,
+    duration_minute,
+    bring_items,
+    physical_items,
+    how_it_works,
+    meet_hosts,
+    instabook,
     // Transaction type info: listingType, transactionProcessAlias, unitType
     ...getTransactionInfo(listingTypes, existingListingTypeInfo),
-    ...initialValuesForListingFields(publicData, 'public', listingType, listingFieldsConfig),
+    // ...initialValuesForListingFields(publicData, 'public', listingType, listingFieldsConfig),
     ...initialValuesForListingFields(privateData, 'private', listingType, listingFieldsConfig),
   };
 };
@@ -268,6 +286,14 @@ const EditListingDetailsPanel = props => {
               listingType,
               transactionProcessAlias,
               unitType,
+              subcategory,
+              bring_items,
+              duration_hour,
+              duration_minute,
+              physical_items,
+              how_it_works,
+              meet_hosts,
+              instabook,
               ...rest
             } = values;
 
@@ -279,12 +305,19 @@ const EditListingDetailsPanel = props => {
                 listingType,
                 transactionProcessAlias,
                 unitType,
+                bring_items,
+                subcategory,
+                duration_hour,
+                duration_minute,
+                physical_items,
+                how_it_works,
+                meet_hosts,
+                instabook,
                 ...pickListingFieldsData(rest, 'public', listingType, listingFieldsConfig),
               },
               privateData: pickListingFieldsData(rest, 'private', listingType, listingFieldsConfig),
               ...setNoAvailabilityForUnbookableListings(transactionProcessAlias),
             };
-
             onSubmit(updateValues);
           }}
           selectableListingTypes={listingTypes.map(conf => getTransactionInfo([conf], {}, true))}

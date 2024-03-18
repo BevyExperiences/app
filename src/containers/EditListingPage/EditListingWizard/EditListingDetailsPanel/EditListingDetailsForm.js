@@ -11,7 +11,7 @@ import { EXTENDED_DATA_SCHEMA_TYPES, propTypes } from '../../../../util/types';
 import { maxLength, required, composeValidators } from '../../../../util/validators';
 
 // Import shared components
-import { Form, Button, FieldSelect, FieldTextInput, Heading } from '../../../../components';
+import { Form, Button, FieldSelect, FieldTextInput, Heading, FieldCheckboxGroup } from '../../../../components';
 // Import modules from this directory
 import CustomExtendedDataField from '../CustomExtendedDataField';
 import css from './EditListingDetailsForm.module.css';
@@ -129,16 +129,16 @@ const AddListingFields = props => {
 
     return isKnownSchemaType && isTargetListingType && isProviderScope
       ? [
-          ...pickedFields,
-          <CustomExtendedDataField
-            key={namespacedKey}
-            name={namespacedKey}
-            fieldConfig={fieldConfig}
-            defaultRequiredMessage={intl.formatMessage({
-              id: 'EditListingDetailsForm.defaultRequiredMessage',
-            })}
-          />,
-        ]
+        ...pickedFields,
+        <CustomExtendedDataField
+          key={namespacedKey}
+          name={namespacedKey}
+          fieldConfig={fieldConfig}
+          defaultRequiredMessage={intl.formatMessage({
+            id: 'EditListingDetailsForm.defaultRequiredMessage',
+          })}
+        />,
+      ]
       : pickedFields;
   }, []);
 
@@ -196,6 +196,37 @@ const EditListingDetailsFormComponent = props => (
       const submitInProgress = updateInProgress;
       const submitDisabled = invalid || disabled || submitInProgress;
 
+      const options = [
+        {
+          key: 'art-culture',
+          label: 'Art & Culture',
+        },
+        {
+          key: 'beach-boating',
+          label: 'Beach & Boating',
+        },
+        {
+          key: 'food-drink',
+          label: 'Food & Drink',
+        },
+        {
+          key: 'relax-meditation',
+          label: 'Relax & Meditation',
+        },
+        {
+          key: 'fun-sports',
+          label: 'Fun & Sports',
+        },
+        {
+          key: 'sightseeing',
+          label: 'Sightseeing',
+        },
+        {
+          key: 'team-building',
+          label: 'Team-Building',
+        },
+      ]
+
       return (
         <Form className={classes} onSubmit={handleSubmit}>
           <ErrorMessage fetchErrors={fetchErrors} />
@@ -223,6 +254,45 @@ const EditListingDetailsFormComponent = props => (
             />
           ) : null}
 
+          <FieldCheckboxGroup
+            id={`${formId}subcategory`}
+            name="subcategory"
+            className={css.subcategory}
+            label={intl.formatMessage({ id: 'EditListingDetailsForm.subcategory' })}
+            options={options}
+            validate={required(
+              intl.formatMessage({
+                id: 'EditListingDetailsForm.subcategoryRequired',
+              })
+            )}
+          />
+          <label
+            for="durationContainer"
+            className={css.durationConatinerLabel}
+          >
+            {intl.formatMessage({ id: 'EditListingDetailsForm.durationContainer' })}
+          </label>
+          <div
+            id={`${formId}durationcontainer`}
+            name={`durationContainer`}
+            className={css.durationContainer}
+          >
+            <FieldTextInput
+              id={`${formId}duration-hour`}
+              name="duration_hour"
+              className={css.durationHoursTextInput}
+              type="text"
+            />
+            <span className={css.durationHours}>hours</span>
+            <FieldTextInput
+              id={`${formId}duration-minute`}
+              name="duration_minute"
+              className={css.durationMinutesTextInput}
+              type="text"
+            />
+            <span className={css.durationMinutes}>mins</span>
+          </div>
+
           {showDescription ? (
             <FieldTextInput
               id={`${formId}description`}
@@ -241,11 +311,81 @@ const EditListingDetailsFormComponent = props => (
             />
           ) : null}
 
-          <AddListingFields
+          <label
+            for="bring_items_container"
+            className={css.bringItemsContainerLabel}
+          >
+            {intl.formatMessage({ id: 'EditListingDetailsForm.bringItems' })}
+          </label>
+          <div
+            id={`${formId}bringitems-container`}
+            name="bring_items_container"
+            className={css.bringItemsContainer}
+          >
+            <FieldTextInput
+              id={`${formId}bringitems`}
+              name="bring_items"
+              className={css.bringItems}
+              type="text"
+            />
+          </div>
+
+          <FieldTextInput
+            id={`${formId}physical-items`}
+            name="physical_items"
+            className={css.physicalItems}
+            type="textarea"
+            label={intl.formatMessage({ id: 'EditListingDetailsForm.physicalItems' })}
+            placeholder={intl.formatMessage({
+              id: 'EditListingDetailsForm.physicalItemsPlaceholder',
+            })}
+            validate={required(
+              intl.formatMessage({
+                id: 'EditListingDetailsForm.physicalItemsRequired',
+              })
+            )}
+          />
+
+          <FieldTextInput
+            id={`${formId}how-it-works`}
+            name="how_it_works"
+            className={css.howItWorks}
+            type="textarea"
+            label={intl.formatMessage({ id: 'EditListingDetailsForm.howItWorks' })}
+            placeholder={intl.formatMessage({
+              id: 'EditListingDetailsForm.howItWorksPlaceholder',
+            })}
+            validate={required(
+              intl.formatMessage({
+                id: 'EditListingDetailsForm.howItWorksRequired',
+              })
+            )}
+          />
+
+          <label
+            for="meet_hosts_container"
+            className={css.meetHostsContainerLabel}
+          >
+            {intl.formatMessage({ id: 'EditListingDetailsForm.meetHosts' })}
+          </label>
+          <div
+            id={`${formId}meet-hosts-container`}
+            name="meet_hosts_container"
+            className={css.meetHostsContainer}
+          >
+            <FieldTextInput
+              id={`${formId}meet-hosts`}
+              name="meet_hosts"
+              className={css.meetHosts}
+              type="text"
+            />
+          </div>
+
+          {/* <AddListingFields
             listingType={listingType}
             listingFieldsConfig={listingFieldsConfig}
             intl={intl}
-          />
+          /> */}
 
           <Button
             className={css.submitButton}

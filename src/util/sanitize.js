@@ -162,7 +162,21 @@ const sanitizeConfiguredPublicData = (publicData, config = {}) => {
   const sanitizedConfiguredPublicData = Object.entries(publicData).reduce((sanitized, entry) => {
     const [key, value] = entry;
     const foundListingFieldConfig = config?.listingFields?.find(d => d.key === key);
-    const sanitizedValue = ['listingType', 'transactionProcessAlias', 'unitType'].includes(key)
+
+    const allowed_keys = [
+      'listingType',
+      'transactionProcessAlias',
+      'unitType',
+      'subcategory',
+      'duration_hour',
+      'duration_minute',
+      'bring_items',
+      'group_size',
+      'physical_items',
+      'how_it_works',
+    ];
+
+    const sanitizedValue = allowed_keys.includes(key)
       ? sanitizeText(value)
       : foundListingFieldConfig
       ? sanitizedListingFields(value, foundListingFieldConfig)

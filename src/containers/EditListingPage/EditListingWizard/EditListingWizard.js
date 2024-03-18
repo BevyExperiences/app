@@ -198,9 +198,6 @@ const tabCompleted = (tab, listing, config) => {
       return !!(
         description &&
         title &&
-        listingType &&
-        transactionProcessAlias &&
-        unitType &&
         hasValidListingFieldsInExtendedData(publicData, privateData, config)
       );
     case PRICING:

@@ -38,6 +38,66 @@
   flex-shrink: 0;
 }
 
+.durationContainer {
+  composes: formMargins;
+  flex-shrink: 0;
+  display: flex;
+}
+
+.bringItemsContainer {
+  composes: formMargins;
+  flex-shrink: 0;
+  display: flex;
+}
+.bringItemsContainerLabel {
+  font-size: 14px !important;
+  line-height: 16px;
+}
+
+.meetHostsContainerLabel {
+  font-size: 14px !important;
+  line-height: 16px;
+}
+
+.durationHoursTextInput {
+  margin-right: 5px;
+  max-width: 55px;
+}
+
+.durationMinutesTextInput {
+  margin-right: 5px;
+  margin-left: 5px;
+  max-width: 55px;
+}
+
+.physicalItems {
+  composes: formMargins;
+  flex-shrink: 0;
+}
+
+.howItWorks {
+  composes: formMargins;
+  flex-shrink: 0;
+}
+
+.durationHours {
+  line-height: 47px;
+}
+
+.durationMinutes {
+  line-height: 47px;
+}
+
+.durationConatinerLabel {
+  font-size: 14px !important;
+  line-height: 16px;
+}
+
+.subcategory {
+  composes: formMargins;
+  flex-shrink: 0;
+}
+
 .listingTypeSelect {
   margin-bottom: 24px;
 
