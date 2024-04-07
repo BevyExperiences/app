@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import { array, arrayOf, bool, func, number, object, shape, string } from 'prop-types';
 import pickBy from 'lodash/pickBy';
 import classNames from 'classnames';
@@ -14,12 +14,9 @@ import { parse, stringify } from '../../util/urlHelpers';
 import { createResourceLocatorString, pathByRouteName } from '../../util/routes';
 import { propTypes } from '../../util/types';
 import {
-  Button,
   LimitedAccessBanner,
-  LinkedLogo,
   Modal,
   ModalMissingInformation,
-  NamedLink,
 } from '../../components';
 
 import MenuIcon from './MenuIcon';

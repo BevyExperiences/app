@@ -62,10 +62,16 @@ const LoginFormComponent = props => (
         </NamedLink>
       );
 
+      const signUpLink = <NamedLink name="SignupPage">
+        <FormattedMessage id="LoginForm.signUp" />
+      </NamedLink>;
+
       return (
         <Form className={classes} onSubmit={handleSubmit}>
+          <div className={css.title}>Welcome Back!</div>
           <div>
             <FieldTextInput
+              className={css.email}
               type="email"
               id={formId ? `${formId}.email` : 'email'}
               name="email"
@@ -95,6 +101,11 @@ const LoginFormComponent = props => (
                   id="LoginForm.forgotPasswordInfo"
                   values={{ passwordRecoveryLink }}
                 />
+              </span>
+            </p>
+            <p className={css.bottomWrapperText}>
+              <span className={css.recoveryLinkInfo}>
+                <FormattedMessage id="LoginForm.redirectSignUp" values={{ signUpLink }} />
               </span>
             </p>
           </div>

@@ -11,7 +11,7 @@ export const UsersPage = props => {
     <Page title={'Users'} className={css.page} scrollingDisabled={false}>
       <LayoutSingleColumn topbar={<TopbarContainer />} footer={<FooterContainer />}>
         <div className={css.root}>
-          <DashboardMenu active={4} hover={2} />
+          <DashboardMenu active={4} />
           <div className={css.content}>
             <div className={css.contentHeader}>
               <div className={css.title}>Users</div>

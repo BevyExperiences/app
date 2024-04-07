@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { bool, node } from 'prop-types';
 import { compose } from 'redux';
 import { Form as FinalForm } from 'react-final-form';
@@ -7,9 +7,11 @@ import classNames from 'classnames';
 
 import { FormattedMessage, injectIntl, intlShape } from '../../../util/reactIntl';
 import * as validators from '../../../util/validators';
-import { Form, PrimaryButton, FieldTextInput } from '../../../components';
+import { Form, PrimaryButton, FieldTextInput, NamedLink, FieldSelect } from '../../../components';
 
 import css from './SignupForm.module.css';
+
+import countryList from 'react-select-country-list';
 
 const SignupFormComponent = props => (
   <FinalForm
@@ -39,6 +41,10 @@ const SignupFormComponent = props => (
         })
       );
 
+      const countryRequired = validators.required(
+        intl.formatMessage({ id: 'SignupForm.countryRequired' })
+      );
+
       // password
       const passwordRequiredMessage = intl.formatMessage({
         id: 'SignupForm.passwordRequired',
@@ -59,6 +65,12 @@ const SignupFormComponent = props => (
           maxLength: validators.PASSWORD_MAX_LENGTH,
         }
       );
+
+      const signInLink = (
+        <NamedLink name="LoginPage">
+          {intl.formatMessage({ id: 'SignupForm.loginLinkText' })}
+        </NamedLink>
+      );
       const passwordMinLength = validators.minLength(
         passwordMinLengthMessage,
         validators.PASSWORD_MIN_LENGTH
@@ -78,8 +90,11 @@ const SignupFormComponent = props => (
       const submitInProgress = inProgress;
       const submitDisabled = invalid || submitInProgress;
 
+      const countryOptions = useMemo(() => countryList().getData(), []);
+
       return (
         <Form className={classes} onSubmit={handleSubmit}>
+          <div className={css.title}>Join Bevy Experiences</div>
           <div>
             <div className={css.name}>
               <FieldTextInput
@@ -120,6 +135,7 @@ const SignupFormComponent = props => (
               />
             </div>
             <FieldTextInput
+              className={css.email}
               type="email"
               id={formId ? `${formId}.email` : 'email'}
               name="email"
@@ -132,6 +148,45 @@ const SignupFormComponent = props => (
               })}
               validate={validators.composeValidators(emailRequired, emailValid)}
             />
+            <FieldTextInput
+              className={css.company}
+              type="text"
+              id={formId ? `${formId}.company` : 'company'}
+              name="company"
+              autoComplete="company"
+              label={intl.formatMessage({
+                id: 'SignupForm.companyLabel',
+              })}
+              placeholder={intl.formatMessage({
+                id: 'SignupForm.companyNamePlaceholder',
+              })}
+              // validate={validators.required(
+              //   intl.formatMessage({
+              //     id: 'SignupForm.companyNameRequired',
+              //   })
+              // )}
+            />
+
+            <FieldSelect
+              className={css.customField}
+              type="select"
+              name="country"
+              label={intl.formatMessage({
+                id: 'SignupForm.countrySelectLabel',
+              })}
+              id={formId ? `${formId}.country` : 'country'}
+              validate={validators.composeValidators(countryRequired)}
+            >
+              <option value="" disabled>
+                Please select your country
+              </option>
+              {countryOptions.map(country => (
+                <option key={country.value} value={country.label}>
+                  {country.label}
+                </option>
+              ))}
+            </FieldSelect>
+
             <FieldTextInput
               className={css.password}
               type="password"
@@ -153,6 +208,11 @@ const SignupFormComponent = props => (
             <PrimaryButton type="submit" inProgress={submitInProgress} disabled={submitDisabled}>
               <FormattedMessage id="SignupForm.signUp" />
             </PrimaryButton>
+            <p className={css.bottomWrapperText}>
+              <span className={css.recoveryLinkInfo}>
+                <FormattedMessage id="SignupForm.redirectLogin" values={{ signInLink }} />
+              </span>
+            </p>
           </div>
         </Form>
       );

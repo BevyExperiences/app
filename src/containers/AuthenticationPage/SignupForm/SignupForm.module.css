@@ -13,19 +13,35 @@
 .name {
   display: flex;
   justify-content: space-between;
-  margin-top: 24px;
+  margin-top: 12px;
 
   @media (--viewportMedium) {
-    margin-top: 32px;
+    margin-top: 16px;
+  }
+}
+
+.email {
+  margin-top: 12px;
+
+  @media (--viewportMedium) {
+    margin-top: 16px;
+  }
+}
+
+.company {
+  margin-top: 12px;
+
+  @media (--viewportMedium) {
+    margin-top: 16px;
   }
 }
 
 .firstNameRoot {
-  width: calc(34% - 9px);
+  width: calc(50% - 9px);
 }
 
 .lastNameRoot {
-  width: calc(66% - 9px);
+  width: calc(50% - 9px);
 }
 
 .password {
@@ -34,4 +50,27 @@
 
 .bottomWrapper {
   composes: marketplaceModalBottomWrapper from global;
+}
+
+.bottomWrapperText {
+  composes: marketplaceModalBottomWrapperText from global;
+}
+
+.recoveryLink {
+  composes: marketplaceModalHelperLink from global;
+}
+
+.title {
+  background: var(--colorSuccess);
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.customField {
+  margin-top: 12px;
+
+  @media (--viewportMedium) {
+    margin-top: 16px;
+  }
 }

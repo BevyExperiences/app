@@ -11,7 +11,7 @@ export const ProfilePage = props => {
     <Page title={'Profile'} className={css.page} scrollingDisabled={false}>
       <LayoutSingleColumn topbar={<TopbarContainer />} footer={<FooterContainer />}>
         <div className={css.root}>
-          <DashboardMenu active={6} hover={0} />
+          <DashboardMenu active={6} />
           <div className={css.content}>
             <div className={css.title}>Account</div>
             <div className={css.details}>

@@ -202,24 +202,36 @@ export const AuthenticationForms = props => {
     <div className={css.content}>
       <LinkTabNavHorizontal className={css.tabs} tabs={tabs} />
       {loginOrSignupError}
+      <div className={css.topContainer}>
+        <div className={css.descriptionContainer}>
+          <h3>Find Curated Experiences and Activities for your Bevy</h3>
+          <ul>
+            <li>Tailored for Groups/Teams</li>
+            <li>Hassle-free Booking</li>
+            <li>Dedicated Experience Coordinator</li>
+          </ul>
+          <p style={{ fontStyle: 'italic', fontSize: '12px' }}>
+            <sup>1</sup>bevy: a group people with something in common
+          </p>
+        </div>
+        {isLogin ? (
+          <LoginForm className={css.loginForm} onSubmit={submitLogin} inProgress={authInProgress} />
+        ) : (
+          <SignupForm
+            className={css.signupForm}
+            onSubmit={handleSubmitSignup}
+            inProgress={authInProgress}
+            termsAndConditions={termsAndConditions}
+          />
+        )}
 
-      {isLogin ? (
-        <LoginForm className={css.loginForm} onSubmit={submitLogin} inProgress={authInProgress} />
-      ) : (
-        <SignupForm
-          className={css.signupForm}
-          onSubmit={handleSubmitSignup}
-          inProgress={authInProgress}
-          termsAndConditions={termsAndConditions}
+        <SocialLoginButtonsMaybe
+          isLogin={isLogin}
+          showFacebookLogin={showFacebookLogin}
+          showGoogleLogin={showGoogleLogin}
+          from={from}
         />
-      )}
-
-      <SocialLoginButtonsMaybe
-        isLogin={isLogin}
-        showFacebookLogin={showFacebookLogin}
-        showGoogleLogin={showGoogleLogin}
-        from={from}
-      />
+      </div>
     </div>
   );
 };

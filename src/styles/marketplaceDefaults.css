@@ -222,7 +222,7 @@ a {
   border: none;
 
   /* Colors */
-  color: var(--marketplaceColor);
+  /* color: var(--marketplaceColor); */
 
   /* Text size should be inherited */
   text-decoration: none;
@@ -584,7 +584,7 @@ textarea {
   border: none;
 
   /* Colors */
-  color: var(--marketplaceColor);
+  color: var(--colorSuccess);
 
   /* Text size should be inherited */
   text-decoration: none;
@@ -1007,7 +1007,7 @@ textarea {
 .buttonPrimary {
   /* button defaults */
   display: block;
-  /* width: 100%; */
+  width: 100%;
   min-height: 56px;
   margin: 0;
 
@@ -1383,7 +1383,7 @@ textarea {
   border-bottom: none;
 
   @media (--viewportMedium) {
-    flex-basis: 480px;
+    flex-basis: 1024px;
     flex-grow: 0;
     /* min-height: 568px; */
     padding: var(--modalPaddingMedium);
@@ -1447,11 +1447,11 @@ textarea {
 /* Bottom wrapper for the modal */
 .marketplaceModalBottomWrapper {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 10px;
   align-self: stretch;
 
   @media (--viewportMedium) {
-    margin-top: 48px;
+    margin-top: 18px;
   }
 }
 
@@ -1472,7 +1472,7 @@ textarea {
 
   -webkit-font-smoothing: subpixel-antialiased;
 
-  color: var(--colorGrey300);
+  /* color: var(--colorGrey300); */
   margin: 0;
 
   @media (--viewportMedium) {
@@ -1601,9 +1601,9 @@ textarea {
 .marketplaceModalPasswordMargins {
   /* Leave space between the input and the button below when the
   viewport height is small */
-  margin-top: 24px;
+  margin-top: 12px;
 
   @media (--viewportMedium) {
-    margin-top: 32px;
+    margin-top: 16px;
   }
 }

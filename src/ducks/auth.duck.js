@@ -199,11 +199,18 @@ export const signup = params => (dispatch, getState, sdk) => {
     return Promise.reject(new Error('Login or logout already in progress'));
   }
   dispatch(signupRequest());
-  const { email, password, firstName, lastName, ...rest } = params;
+  const { email, password, firstName, lastName, country, company, ...rest } = params;
 
   const createUserParams = isEmpty(rest)
-    ? { email, password, firstName, lastName }
-    : { email, password, firstName, lastName, protectedData: { ...rest } };
+    ? { email, password, firstName, lastName, publicData: { country, company } }
+    : {
+        email,
+        password,
+        firstName,
+        lastName,
+        publicData: { country, company },
+        protectedData: { ...rest },
+      };
 
   // We must login the user if signup succeeds since the API doesn't
   // do that automatically.
@@ -217,6 +224,8 @@ export const signup = params => (dispatch, getState, sdk) => {
         email: params.email,
         firstName: params.firstName,
         lastName: params.lastName,
+        company: params.company,
+        country: params.country,
       });
     });
 };
