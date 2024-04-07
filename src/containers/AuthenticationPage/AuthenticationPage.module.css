@@ -6,7 +6,7 @@
 
 .contentContainer {
   composes: marketplaceModalRootStyles from global;
-  height: calc(100vh - 60px);
+  /* height: calc(100vh - 60px); */
 
   @media (--viewportMedium) {
     height: unset;
@@ -27,6 +27,7 @@
 /* ================ Tabs & Form ================ */
 
 .tabs {
+  justify-content: center;
   @media (--viewportMedium) {
     margin-top: 6px;
   }
@@ -54,25 +55,7 @@
 }
 
 .loginForm {
-  margin-top: 24px;
-
-  /* We don't want the form to take the whole space so that on mobile view
-  the social login buttons will be after the sign up button
-  and not in the bottom of the page.
-  We also need to add flex-basis value so that Safari will show the
-  whole form correctly.  */
-  flex-grow: 0;
-  flex-basis: 260px;
-
-  @media (--viewportMedium) {
-    flex-basis: 330px;
-    margin-top: 30px;
-    padding-top: 2px;
-  }
-}
-
-.signupForm {
-  margin-top: 24px;
+  /* margin-top: 24px; */
 
   /* We don't want the form to take the whole space so that on mobile view
   the social login buttons will be after the sign up button
@@ -84,7 +67,25 @@
 
   @media (--viewportMedium) {
     flex-basis: 410px;
-    margin-top: 30px;
+    /* margin-top: 30px; */
+    padding-top: 2px;
+  }
+}
+
+.signupForm {
+  /* margin-top: 24px; */
+
+  /* We don't want the form to take the whole space so that on mobile view
+  the social login buttons will be after the sign up button
+  and not in the bottom of the page.
+  We also need to add flex-basis value so that Safari will show the
+  whole form correctly.  */
+  flex-grow: 0;
+  flex-basis: 340px;
+
+  @media (--viewportMedium) {
+    flex-basis: 410px;
+    /* margin-top: 30px; */
     padding-top: 2px;
   }
 }
@@ -252,4 +253,33 @@
   padding: 0 20px 0 20px;
   position: relative;
   margin: 0;
+}
+
+.descriptionContainer {
+  display: flex;
+  flex-basis: 450px;
+  height: 700px;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--colorSuccess);
+  padding: 10px 30px;
+
+  * {
+    color: white;
+  }
+
+  & ul {
+    list-style: inside;
+  }
+}
+
+.topContainer {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+
+  @media (--viewportMobile) {
+    flex-direction: column;
+    justify-content: center;
+  }
 }

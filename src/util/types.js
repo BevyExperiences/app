@@ -135,6 +135,7 @@ propTypes.currentUser = shape({
     profile: shape({
       firstName: string.isRequired,
       lastName: string.isRequired,
+      country: string.isRequired,
       displayName: string.isRequired,
       abbreviatedName: string.isRequired,
       bio: string,
