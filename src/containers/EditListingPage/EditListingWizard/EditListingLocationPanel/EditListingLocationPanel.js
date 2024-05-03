@@ -23,7 +23,17 @@ const getInitialValues = props => {
   const location = publicData?.location || {};
   const { address, building } = location;
 
-  const { group_size, price_per_person, general_rules, experience_type, instabook } = publicData;
+  const {
+    group_size,
+    price_per_person,
+    general_rules,
+    experience_type,
+    instabook,
+    listingType,
+    minimumBookingTime,
+    pricePerHour,
+    sizeOfVenue,
+  } = publicData;
 
   return {
     building,
@@ -32,11 +42,15 @@ const getInitialValues = props => {
     general_rules,
     experience_type,
     instabook,
+    listingType,
+    minimumBookingTime,
+    pricePerHour,
+    sizeOfVenue,
     location: locationFieldsPresent
       ? {
-          search: address,
-          selectedPlace: { address, origin: geolocation },
-        }
+        search: address,
+        selectedPlace: { address, origin: geolocation },
+      }
       : null,
   };
 };

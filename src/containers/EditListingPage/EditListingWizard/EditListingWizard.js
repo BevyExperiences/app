@@ -565,6 +565,7 @@ class EditListingWizard extends Component {
                 handlePublishListing={this.handlePublishListing}
                 fetchInProgress={fetchInProgress}
                 onListingTypeChange={selectedListingType => this.setState({ selectedListingType })}
+                selectedListingType={this.state.selectedListingType}
                 onManageDisableScrolling={onManageDisableScrolling}
                 config={config}
                 routeConfiguration={routeConfiguration}

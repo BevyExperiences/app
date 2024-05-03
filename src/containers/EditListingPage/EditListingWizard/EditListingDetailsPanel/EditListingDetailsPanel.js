@@ -184,7 +184,7 @@ const setNoAvailabilityForUnbookableListings = processAlias => {
  */
 const getInitialValues = (props, existingListingTypeInfo, listingTypes, listingFieldsConfig) => {
   const { description, title, publicData, privateData } = props?.listing?.attributes || {};
-  const { 
+  const {
     listingType,
     subcategory,
     duration_hour,
@@ -193,6 +193,11 @@ const getInitialValues = (props, existingListingTypeInfo, listingTypes, listingF
     how_it_works,
     physical_items,
     meet_hosts,
+    space,
+    capacity,
+    amendity_items,
+    not_allowed_items,
+    addon_items,
     instabook
   } = publicData;
 
@@ -207,6 +212,11 @@ const getInitialValues = (props, existingListingTypeInfo, listingTypes, listingF
     physical_items,
     how_it_works,
     meet_hosts,
+    space,
+    capacity,
+    amendity_items,
+    not_allowed_items,
+    addon_items,
     instabook,
     // Transaction type info: listingType, transactionProcessAlias, unitType
     ...getTransactionInfo(listingTypes, existingListingTypeInfo),
@@ -225,6 +235,7 @@ const EditListingDetailsPanel = props => {
     onSubmit,
     onListingTypeChange,
     submitButtonText,
+    selectedListingType,
     panelUpdated,
     updateInProgress,
     errors,
@@ -293,9 +304,16 @@ const EditListingDetailsPanel = props => {
               physical_items,
               how_it_works,
               meet_hosts,
+              space,
+              capacity,
+              amendity_items,
+              not_allowed_items,
+              addon_items,
               instabook,
               ...rest
             } = values;
+
+            console.log({bring_items});
 
             // New values for listing attributes
             const updateValues = {
@@ -311,6 +329,11 @@ const EditListingDetailsPanel = props => {
                 duration_minute,
                 physical_items,
                 how_it_works,
+                space,
+                capacity,
+                amendity_items,
+                not_allowed_items,
+                addon_items,
                 meet_hosts,
                 instabook,
                 ...pickListingFieldsData(rest, 'public', listingType, listingFieldsConfig),
@@ -324,6 +347,7 @@ const EditListingDetailsPanel = props => {
           hasExistingListingType={hasExistingListingType}
           onListingTypeChange={onListingTypeChange}
           listingFieldsConfig={listingFieldsConfig}
+          selectedListingType={selectedListingType}
           marketplaceCurrency={config.currency}
           disabled={disabled}
           ready={ready}

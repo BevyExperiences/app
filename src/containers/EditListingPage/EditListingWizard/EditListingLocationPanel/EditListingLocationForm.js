@@ -52,6 +52,8 @@ export const EditListingLocationFormComponent = props => (
         values,
       } = formRenderProps;
 
+      const { listingType } = values;
+
       const addressRequiredMessage = intl.formatMessage({
         id: 'EditListingLocationForm.addressRequired',
       });
@@ -116,64 +118,146 @@ export const EditListingLocationFormComponent = props => (
             )}
           />
 
-          <FieldTextInput
-            className={css.groupSize}
-            type="text"
-            name="group_size"
-            id={`${formId}group-size`}
-            label={intl.formatMessage({ id: 'EditListingLocationForm.groupSize' }, { optionalText })}
-            placeholder={intl.formatMessage({
-              id: 'EditListingLocationForm.groupSizePlaceholder',
-            })}
-          />
+          {
+            listingType && listingType === "in-person" && (
+              <>
+                <FieldTextInput
+                  className={css.groupSize}
+                  type="text"
+                  name="group_size"
+                  id={`${formId}group-size`}
+                  label={intl.formatMessage({ id: 'EditListingLocationForm.groupSize' }, { optionalText })}
+                  placeholder={intl.formatMessage({
+                    id: 'EditListingLocationForm.groupSizePlaceholder',
+                  })}
+                />
 
-          <FieldTextInput
-            className={css.pricePerPerson}
-            type="text"
-            name="price_per_person"
-            id={`${formId}price-per-person`}
-            label={intl.formatMessage({ id: 'EditListingLocationForm.pricePerPerson' }, { optionalText })}
-            placeholder={intl.formatMessage({
-              id: 'EditListingLocationForm.pricePerPersonPlaceholder',
-            })}
-          />
+                <FieldTextInput
+                  className={css.pricePerPerson}
+                  type="text"
+                  name="price_per_person"
+                  id={`${formId}price-per-person`}
+                  label={intl.formatMessage({ id: 'EditListingLocationForm.pricePerPerson' }, { optionalText })}
+                  placeholder={intl.formatMessage({
+                    id: 'EditListingLocationForm.pricePerPersonPlaceholder',
+                  })}
+                />
 
-          <FieldCheckboxGroup
-            id={`${formId}experience-type`}
-            name="experience_type"
-            className={css.experienceType}
-            label={intl.formatMessage({ id: 'EditListingLocationForm.experienceType' })}
-            options={types}
-            validate={required(
-              intl.formatMessage({
-                id: 'EditListingLocationForm.experienceTypeRequired',
-              })
-            )}
-          />
+                <FieldCheckboxGroup
+                  id={`${formId}experience-type`}
+                  name="experience_type"
+                  className={css.experienceType}
+                  label={intl.formatMessage({ id: 'EditListingLocationForm.experienceType' })}
+                  options={types}
+                  validate={required(
+                    intl.formatMessage({
+                      id: 'EditListingLocationForm.experienceTypeRequired',
+                    })
+                  )}
+                />
 
-          <FieldBoolean
-            id={`${formId}instabook`}
-            name="instabook"
-            className={css.instaBook}
-            label="Allow Insta-Book?"
-            placeholder="Choose yes/no"
-            validate={required(
-              intl.formatMessage({
-                id: 'EditListingLocationForm.allowInstaBookRequired',
-              })
-            )}
-          />
+                <FieldBoolean
+                  id={`${formId}instabook`}
+                  name="instabook"
+                  className={css.instaBook}
+                  label="Allow Insta-Book?"
+                  placeholder="Choose yes/no"
+                  validate={required(
+                    intl.formatMessage({
+                      id: 'EditListingLocationForm.allowInstaBookRequired',
+                    })
+                  )}
+                />
 
-          <FieldTextInput
-            className={css.generalRules}
-            type="textarea"
-            name="general_rules"
-            id={`${formId}general-rules`}
-            label={intl.formatMessage({ id: 'EditListingLocationForm.generalRules' }, { optionalText })}
-            placeholder={intl.formatMessage({
-              id: 'EditListingLocationForm.generalRulesPlaceholder',
-            })}
-          />
+                <FieldTextInput
+                  className={css.generalRules}
+                  type="textarea"
+                  name="general_rules"
+                  id={`${formId}general-rules`}
+                  label={intl.formatMessage({ id: 'EditListingLocationForm.generalRules' }, { optionalText })}
+                  placeholder={intl.formatMessage({
+                    id: 'EditListingLocationForm.generalRulesPlaceholder',
+                  })}
+                />
+              </>
+            )
+          }
+
+          {
+            listingType && listingType === "venue" && (
+              <>
+                <FieldTextInput
+                  className={css.minimumBookingTime}
+                  type="text"
+                  name="minimum_booking_time"
+                  id={`${formId}minimum-booking-time`}
+                  label={intl.formatMessage({ id: 'EditListingLocationForm.minimumBookingTime' }, { optionalText })}
+                  placeholder={intl.formatMessage({
+                    id: 'EditListingLocationForm.minimumBookingTimePlaceholder',
+                  })}
+                />
+
+                <FieldTextInput
+                  className={css.pricePerHour}
+                  type="text"
+                  name="price_per_hour"
+                  id={`${formId}price-per-hour`}
+                  label={intl.formatMessage({ id: 'EditListingLocationForm.pricePerHour' }, { optionalText })}
+                  placeholder={intl.formatMessage({
+                    id: 'EditListingLocationForm.pricePerHourPlaceholder',
+                  })}
+                />
+
+                <FieldCheckboxGroup
+                  id={`${formId}experience-type`}
+                  name="experience_type"
+                  className={css.experienceType}
+                  label={intl.formatMessage({ id: 'EditListingLocationForm.experienceType' })}
+                  options={types}
+                  validate={required(
+                    intl.formatMessage({
+                      id: 'EditListingLocationForm.experienceTypeRequired',
+                    })
+                  )}
+                />
+
+                <FieldTextInput
+                  className={css.sizeOfVenue}
+                  type="text"
+                  name="size_of_venue"
+                  id={`${formId}size-of-venue`}
+                  label={intl.formatMessage({ id: 'EditListingLocationForm.sizeOfVenue' }, { optionalText })}
+                  placeholder={intl.formatMessage({
+                    id: 'EditListingLocationForm.sizeOfVenuePlaceholder',
+                  })}
+                />
+
+                <FieldBoolean
+                  id={`${formId}instabook`}
+                  name="instabook"
+                  className={css.instaBook}
+                  label="Allow Insta-Book?"
+                  placeholder="Choose yes/no"
+                  validate={required(
+                    intl.formatMessage({
+                      id: 'EditListingLocationForm.allowInstaBookRequired',
+                    })
+                  )}
+                />
+
+                <FieldTextInput
+                  className={css.generalRules}
+                  type="textarea"
+                  name="general_rules"
+                  id={`${formId}general-rules`}
+                  label={intl.formatMessage({ id: 'EditListingLocationForm.generalRules' }, { optionalText })}
+                  placeholder={intl.formatMessage({
+                    id: 'EditListingLocationForm.generalRulesPlaceholder',
+                  })}
+                />
+              </>
+            )
+          }
 
           <Button
             className={css.submitButton}

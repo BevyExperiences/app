@@ -55,7 +55,17 @@
   }
 }
 
+.minimumBookingTime {
+  flex-shrink: 0;
+  margin-bottom: 24px;
+}
+
 .groupSize {
+  flex-shrink: 0;
+  margin-bottom: 24px;
+}
+
+.sizeOfVenue {
   flex-shrink: 0;
   margin-bottom: 24px;
 }
@@ -71,6 +81,11 @@
 }
 
 .pricePerPerson {
+  flex-shrink: 0;
+  margin-bottom: 24px;
+}
+
+.pricePerHour {
   flex-shrink: 0;
   margin-bottom: 24px;
 }

@@ -108,6 +108,7 @@ const EditListingWizardTab = props => {
     onRemoveImage,
     updatedTab,
     updateInProgress,
+    selectedListingType,
     tabSubmitButtonText,
     config,
     routeConfiguration,
@@ -192,6 +193,7 @@ const EditListingWizardTab = props => {
         <EditListingDetailsPanel
           {...panelProps(DETAILS)}
           onListingTypeChange={onListingTypeChange}
+          selectedListingType={selectedListingType}
           config={config}
         />
       );
@@ -202,6 +204,7 @@ const EditListingWizardTab = props => {
           {...panelProps(PRICING_AND_STOCK)}
           marketplaceCurrency={config.currency}
           listingMinimumPriceSubUnits={config.listingMinimumPriceSubUnits}
+          selectedListingType={selectedListingType}
         />
       );
     }
@@ -211,12 +214,13 @@ const EditListingWizardTab = props => {
           {...panelProps(PRICING)}
           marketplaceCurrency={config.currency}
           listingMinimumPriceSubUnits={config.listingMinimumPriceSubUnits}
+          selectedListingType={selectedListingType}
         />
       );
     }
     case DELIVERY: {
       return (
-        <EditListingDeliveryPanel {...panelProps(DELIVERY)} marketplaceCurrency={config.currency} />
+        <EditListingDeliveryPanel {...panelProps(DELIVERY)} marketplaceCurrency={config.currency} selectedListingType={selectedListingType} />
       );
     }
     case LOCATION: {
@@ -244,6 +248,7 @@ const EditListingWizardTab = props => {
           config={config}
           history={history}
           routeConfiguration={routeConfiguration}
+          selectedListingType={selectedListingType}
           {...panelProps(AVAILABILITY)}
         />
       );
@@ -256,6 +261,7 @@ const EditListingWizardTab = props => {
           images={images}
           onImageUpload={onImageUpload}
           onRemoveImage={onRemoveImage}
+          selectedListingType={selectedListingType}
         />
       );
     }
