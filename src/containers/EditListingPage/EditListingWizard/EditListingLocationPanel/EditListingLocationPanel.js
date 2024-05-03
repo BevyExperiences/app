@@ -23,13 +23,34 @@ const getInitialValues = props => {
   const location = publicData?.location || {};
   const { address, building } = location;
 
+  const {
+    group_size,
+    price_per_person,
+    general_rules,
+    experience_type,
+    instabook,
+    listingType,
+    minimumBookingTime,
+    pricePerHour,
+    sizeOfVenue,
+  } = publicData;
+
   return {
     building,
+    group_size,
+    price_per_person,
+    general_rules,
+    experience_type,
+    instabook,
+    listingType,
+    minimumBookingTime,
+    pricePerHour,
+    sizeOfVenue,
     location: locationFieldsPresent
       ? {
-          search: address,
-          selectedPlace: { address, origin: geolocation },
-        }
+        search: address,
+        selectedPlace: { address, origin: geolocation },
+      }
       : null,
   };
 };
@@ -73,7 +94,7 @@ const EditListingLocationPanel = props => {
         className={css.form}
         initialValues={state.initialValues}
         onSubmit={values => {
-          const { building = '', location } = values;
+          const { building = '', location, group_size, price_per_person, general_rules, experience_type, instabook } = values;
           const {
             selectedPlace: { address, origin },
           } = location;
@@ -83,6 +104,11 @@ const EditListingLocationPanel = props => {
             geolocation: origin,
             publicData: {
               location: { address, building },
+              group_size,
+              price_per_person,
+              general_rules,
+              experience_type,
+              instabook,
             },
           };
           // Save the initialValues to state
@@ -91,6 +117,10 @@ const EditListingLocationPanel = props => {
           setState({
             initialValues: {
               building,
+              group_size,
+              price_per_person,
+              general_rules,
+              instabook,
               location: { search: address, selectedPlace: { address, origin } },
             },
           });

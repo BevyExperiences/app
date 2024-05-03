@@ -55,6 +55,46 @@
   }
 }
 
+.minimumBookingTime {
+  flex-shrink: 0;
+  margin-bottom: 24px;
+}
+
+.groupSize {
+  flex-shrink: 0;
+  margin-bottom: 24px;
+}
+
+.sizeOfVenue {
+  flex-shrink: 0;
+  margin-bottom: 24px;
+}
+
+.experienceType {
+  flex-shrink: 0;
+  margin-bottom: 24px;
+}
+
+.instaBook {
+  flex-shrink: 0;
+  margin-bottom: 24px;
+}
+
+.pricePerPerson {
+  flex-shrink: 0;
+  margin-bottom: 24px;
+}
+
+.pricePerHour {
+  flex-shrink: 0;
+  margin-bottom: 24px;
+}
+
+.generalRules {
+  flex-shrink: 0;
+  margin-bottom: 24px;
+}
+
 .submitButton {
   margin-top: auto;
   margin-bottom: 24px;

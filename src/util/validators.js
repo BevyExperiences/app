@@ -124,6 +124,11 @@ export const numberAtLeast = (message, minNumber) => value => {
   return typeof valueNum === 'number' && valueNum >= minNumber ? VALID : message;
 };
 
+export const numberAtMax = (message, maxNumber) => value => {
+  const valueNum = parseNum(value);
+  return typeof valueNum === 'number' && valueNum < maxNumber ? VALID : message;
+};
+
 export const ageAtLeast = (message, minYears) => value => {
   const { year, month, day } = value;
   const dayNum = parseNum(day);

@@ -339,66 +339,187 @@ export const getHostedConfiguration = () => {
     },
     listingFields: {
       listingFields: [
+        // {
+        //   enumOptions: [
+        //     {
+        //       option: 'citybikes',
+        //       label: 'City bikes',
+        //     },
+        //     {
+        //       option: 'electricbikes',
+        //       label: 'Electric bikes',
+        //     },
+        //     {
+        //       label: 'Mountain bikes',
+        //       option: 'mountainbikes',
+        //     },
+        //     {
+        //       option: 'childrensbikes',
+        //       label: "Children's bikes",
+        //     },
+        //   ],
+        //   filterConfig: {
+        //     indexForSearch: true,
+        //     group: 'primary',
+        //   },
+        //   scope: 'public',
+        //   label: 'Category',
+        //   key: 'category',
+        //   schemaType: 'enum',
+        //   saveConfig: {
+        //     required: true,
+        //   },
+        // },
+        // {
+        //   enumOptions: [
+        //     {
+        //       label: '29"',
+        //       option: 'inhc29',
+        //     },
+        //     {
+        //       label: '28"',
+        //       option: 'inch28',
+        //     },
+        //     {
+        //       label: '27"',
+        //       option: 'inch27',
+        //     },
+        //     {
+        //       label: '26"',
+        //       option: 'inch26',
+        //     },
+        //     {
+        //       label: '24"',
+        //       option: 'inch24',
+        //     },
+        //     {
+        //       label: '20"',
+        //       option: 'inch20',
+        //     },
+        //     {
+        //       label: '18"',
+        //       option: 'inch18',
+        //     },
+        //   ],
+        //   filterConfig: {
+        //     indexForSearch: true,
+        //     group: 'secondary',
+        //   },
+        //   scope: 'public',
+        //   key: 'tire',
+        //   label: 'Tire size',
+        //   schemaType: 'enum',
+        //   saveConfig: {
+        //     required: true,
+        //   },
+        // },
+        // {
+        //   enumOptions: [
+        //     {
+        //       label: 'Cube',
+        //       option: 'cube',
+        //     },
+        //     {
+        //       label: 'Diamant',
+        //       option: 'diamant',
+        //     },
+        //     {
+        //       label: 'GHOST',
+        //       option: 'ghost',
+        //     },
+        //     {
+        //       option: 'giant',
+        //       label: 'Giant',
+        //     },
+        //     {
+        //       label: 'Kalkhoff',
+        //       option: 'kalkhoff',
+        //     },
+        //     {
+        //       option: 'kona',
+        //       label: 'Kona',
+        //     },
+        //     {
+        //       label: 'Otler',
+        //       option: 'otler',
+        //     },
+        //     {
+        //       label: 'Vermont',
+        //       option: 'vermont',
+        //     },
+        //   ],
+        //   filterConfig: {
+        //     indexForSearch: true,
+        //     group: 'secondary',
+        //   },
+        //   scope: 'public',
+        //   key: 'brand',
+        //   schemaType: 'enum',
+        //   label: 'Brand',
+        //   saveConfig: {
+        //     required: true,
+        //   },
+        // },
+        // {
+        //   enumOptions: [
+        //     {
+        //       label: 'Bell',
+        //       option: 'bell',
+        //     },
+        //     {
+        //       option: 'lights',
+        //       label: 'Lights',
+        //     },
+        //     {
+        //       option: 'lock',
+        //       label: 'Lock',
+        //     },
+        //     {
+        //       option: 'mudguard',
+        //       label: 'Mudguard',
+        //     },
+        //   ],
+        //   filterConfig: {
+        //     indexForSearch: true,
+        //     group: 'secondary',
+        //   },
+        //   scope: 'public',
+        //   label: 'Accessories',
+        //   key: 'accessories',
+        //   saveConfig: {
+        //     required: true,
+        //   },
+        //   schemaType: 'multi-enum',
+        // },
         {
           enumOptions: [
             {
-              option: 'citybikes',
-              label: 'City bikes',
+              label: 'Art & Culture',
+              option: 'art-culture',
             },
             {
-              option: 'electricbikes',
-              label: 'Electric bikes',
+              option: 'Beach & Boating',
+              label: 'beach-boating',
             },
             {
-              label: 'Mountain bikes',
-              option: 'mountainbikes',
+              option: 'Food & Drink',
+              label: 'food-drink',
             },
             {
-              option: 'childrensbikes',
-              label: "Children's bikes",
-            },
-          ],
-          filterConfig: {
-            indexForSearch: true,
-            group: 'primary',
-          },
-          scope: 'public',
-          label: 'Category',
-          key: 'category',
-          schemaType: 'enum',
-          saveConfig: {
-            required: true,
-          },
-        },
-        {
-          enumOptions: [
-            {
-              label: '29"',
-              option: 'inhc29',
+              option: 'Relax & Meditation',
+              label: 'relax-meditation',
             },
             {
-              label: '28"',
-              option: 'inch28',
+              option: 'Fun & Sports',
+              label: 'fun-sports',
             },
             {
-              label: '27"',
-              option: 'inch27',
+              option: 'Sightseeing',
+              label: 'sightseeing',
             },
             {
-              label: '26"',
-              option: 'inch26',
-            },
-            {
-              label: '24"',
-              option: 'inch24',
-            },
-            {
-              label: '20"',
-              option: 'inch20',
-            },
-            {
-              label: '18"',
-              option: 'inch18',
+              option: 'Team-Building',
+              label: 'team-building',
             },
           ],
           filterConfig: {
@@ -406,86 +527,8 @@ export const getHostedConfiguration = () => {
             group: 'secondary',
           },
           scope: 'public',
-          key: 'tire',
-          label: 'Tire size',
-          schemaType: 'enum',
-          saveConfig: {
-            required: true,
-          },
-        },
-        {
-          enumOptions: [
-            {
-              label: 'Cube',
-              option: 'cube',
-            },
-            {
-              label: 'Diamant',
-              option: 'diamant',
-            },
-            {
-              label: 'GHOST',
-              option: 'ghost',
-            },
-            {
-              option: 'giant',
-              label: 'Giant',
-            },
-            {
-              label: 'Kalkhoff',
-              option: 'kalkhoff',
-            },
-            {
-              option: 'kona',
-              label: 'Kona',
-            },
-            {
-              label: 'Otler',
-              option: 'otler',
-            },
-            {
-              label: 'Vermont',
-              option: 'vermont',
-            },
-          ],
-          filterConfig: {
-            indexForSearch: true,
-            group: 'secondary',
-          },
-          scope: 'public',
-          key: 'brand',
-          schemaType: 'enum',
-          label: 'Brand',
-          saveConfig: {
-            required: true,
-          },
-        },
-        {
-          enumOptions: [
-            {
-              label: 'Bell',
-              option: 'bell',
-            },
-            {
-              option: 'lights',
-              label: 'Lights',
-            },
-            {
-              option: 'lock',
-              label: 'Lock',
-            },
-            {
-              option: 'mudguard',
-              label: 'Mudguard',
-            },
-          ],
-          filterConfig: {
-            indexForSearch: true,
-            group: 'secondary',
-          },
-          scope: 'public',
-          label: 'Accessories',
-          key: 'accessories',
+          label: 'subcategory',
+          key: 'subcategory',
           saveConfig: {
             required: true,
           },

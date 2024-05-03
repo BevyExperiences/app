@@ -28,6 +28,7 @@ export const TopbarContainerComponent = props => {
     sendVerificationEmailInProgress,
     sendVerificationEmailError,
     onResendVerificationEmail,
+    listingType,
     ...rest
   } = props;
 
@@ -50,6 +51,7 @@ export const TopbarContainerComponent = props => {
       sendVerificationEmailInProgress={sendVerificationEmailInProgress}
       sendVerificationEmailError={sendVerificationEmailError}
       showGenericError={hasGenericError}
+      listingType={listingType}
       {...rest}
     />
   );
@@ -63,6 +65,7 @@ TopbarContainerComponent.defaultProps = {
   notificationCount: 0,
   sendVerificationEmailError: null,
   authScopes: null,
+  listingType: null,
 };
 
 TopbarContainerComponent.propTypes = {
@@ -72,6 +75,7 @@ TopbarContainerComponent.propTypes = {
   currentUser: propTypes.currentUser,
   currentUserHasListings: bool.isRequired,
   currentUserHasOrders: bool,
+  listingType: string,
   isAuthenticated: bool.isRequired,
   authScopes: array,
   notificationCount: number,

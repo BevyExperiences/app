@@ -22,17 +22,25 @@ import EditListingPricingAndStockPanel from './EditListingPricingAndStockPanel/E
 
 import css from './EditListingWizardTab.module.css';
 
+export const CATEGORY = 'category';
 export const DETAILS = 'details';
+export const PARAMETERS = 'parameters';
+export const PHOTOS = 'photos';
+export const AVAILABILITY = 'availability';
+export const PAYOUT = 'payout';
+export const PREVIEW = 'preview'
 export const PRICING = 'pricing';
 export const PRICING_AND_STOCK = 'pricing-and-stock';
 export const DELIVERY = 'delivery';
 export const LOCATION = 'location';
-export const AVAILABILITY = 'availability';
-export const PHOTOS = 'photos';
 
 // EditListingWizardTab component supports these tabs
 export const SUPPORTED_TABS = [
+  CATEGORY,
   DETAILS,
+  PARAMETERS,
+  PAYOUT,
+  PREVIEW,
   PRICING,
   PRICING_AND_STOCK,
   DELIVERY,
@@ -100,6 +108,7 @@ const EditListingWizardTab = props => {
     onRemoveImage,
     updatedTab,
     updateInProgress,
+    selectedListingType,
     tabSubmitButtonText,
     config,
     routeConfiguration,
@@ -184,6 +193,7 @@ const EditListingWizardTab = props => {
         <EditListingDetailsPanel
           {...panelProps(DETAILS)}
           onListingTypeChange={onListingTypeChange}
+          selectedListingType={selectedListingType}
           config={config}
         />
       );
@@ -194,6 +204,7 @@ const EditListingWizardTab = props => {
           {...panelProps(PRICING_AND_STOCK)}
           marketplaceCurrency={config.currency}
           listingMinimumPriceSubUnits={config.listingMinimumPriceSubUnits}
+          selectedListingType={selectedListingType}
         />
       );
     }
@@ -203,12 +214,13 @@ const EditListingWizardTab = props => {
           {...panelProps(PRICING)}
           marketplaceCurrency={config.currency}
           listingMinimumPriceSubUnits={config.listingMinimumPriceSubUnits}
+          selectedListingType={selectedListingType}
         />
       );
     }
     case DELIVERY: {
       return (
-        <EditListingDeliveryPanel {...panelProps(DELIVERY)} marketplaceCurrency={config.currency} />
+        <EditListingDeliveryPanel {...panelProps(DELIVERY)} marketplaceCurrency={config.currency} selectedListingType={selectedListingType} />
       );
     }
     case LOCATION: {
@@ -236,6 +248,7 @@ const EditListingWizardTab = props => {
           config={config}
           history={history}
           routeConfiguration={routeConfiguration}
+          selectedListingType={selectedListingType}
           {...panelProps(AVAILABILITY)}
         />
       );
@@ -248,6 +261,7 @@ const EditListingWizardTab = props => {
           images={images}
           onImageUpload={onImageUpload}
           onRemoveImage={onRemoveImage}
+          selectedListingType={selectedListingType}
         />
       );
     }

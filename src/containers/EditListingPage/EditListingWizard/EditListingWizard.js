@@ -42,6 +42,10 @@ import {
 // Import modules from this directory
 import EditListingWizardTab, {
   DETAILS,
+  CATEGORY,
+  PARAMETERS,
+  PAYOUT,
+  PREVIEW,
   PRICING,
   PRICING_AND_STOCK,
   DELIVERY,
@@ -59,7 +63,7 @@ import css from './EditListingWizard.module.css';
 //         Details tab asks for "title" and is therefore the first tab in the wizard flow.
 const TABS_DETAILS_ONLY = [DETAILS];
 const TABS_PRODUCT = [DETAILS, PRICING_AND_STOCK, DELIVERY, PHOTOS];
-const TABS_BOOKING = [DETAILS, LOCATION, PRICING, AVAILABILITY, PHOTOS];
+const TABS_BOOKING = [DETAILS, LOCATION, PHOTOS, AVAILABILITY, PRICING];
 const TABS_INQUIRY = [DETAILS, LOCATION, PRICING, PHOTOS];
 const TABS_INQUIRY_WITHOUT_PRICE = [DETAILS, LOCATION, PHOTOS];
 const TABS_ALL = [...TABS_PRODUCT, ...TABS_BOOKING, ...TABS_INQUIRY];
@@ -194,9 +198,6 @@ const tabCompleted = (tab, listing, config) => {
       return !!(
         description &&
         title &&
-        listingType &&
-        transactionProcessAlias &&
-        unitType &&
         hasValidListingFieldsInExtendedData(publicData, privateData, config)
       );
     case PRICING:
@@ -231,9 +232,9 @@ const tabsActive = (isNew, listing, tabs, config) => {
     const previousTabIndex = tabs.findIndex(t => t === tab) - 1;
     const validTab = previousTabIndex >= 0;
     const hasListingType = !!listing?.attributes?.publicData?.listingType;
-    const prevTabComletedInNewFlow = tabCompleted(tabs[previousTabIndex], listing, config);
+    const prevTabCompletedInNewFlow = tabCompleted(tabs[previousTabIndex], listing, config);
     const isActive =
-      validTab && !isNew ? hasListingType : validTab && isNew ? prevTabComletedInNewFlow : true;
+      validTab && !isNew ? hasListingType : validTab && isNew ? prevTabCompletedInNewFlow : true;
     return { ...acc, [tab]: isActive };
   }, {});
 };
@@ -564,6 +565,7 @@ class EditListingWizard extends Component {
                 handlePublishListing={this.handlePublishListing}
                 fetchInProgress={fetchInProgress}
                 onListingTypeChange={selectedListingType => this.setState({ selectedListingType })}
+                selectedListingType={this.state.selectedListingType}
                 onManageDisableScrolling={onManageDisableScrolling}
                 config={config}
                 routeConfiguration={routeConfiguration}

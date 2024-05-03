@@ -152,6 +152,7 @@ class TopbarComponent extends Component {
       currentUserHasListings,
       currentUserHasOrders,
       currentPage,
+      listingType,
       notificationCount,
       viewport,
       intl,
@@ -249,6 +250,7 @@ class TopbarComponent extends Component {
               currentUser={currentUser}
               currentPage={currentPage}
               initialSearchFormValues={initialSearchFormValues}
+              listingType={listingType}
               intl={intl}
               isAuthenticated={isAuthenticated}
               notificationCount={notificationCount}
@@ -335,6 +337,7 @@ TopbarComponent.propTypes = {
   currentUserHasListings: bool.isRequired,
   currentUserHasOrders: bool,
   currentPage: string,
+  listingType: string,
   notificationCount: number,
   onLogout: func.isRequired,
   onManageDisableScrolling: func.isRequired,

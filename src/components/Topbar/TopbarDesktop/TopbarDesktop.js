@@ -30,6 +30,7 @@ const TopbarDesktop = props => {
     currentPage,
     rootClassName,
     currentUserHasListings,
+    listingType,
     notificationCount,
     intl,
     isAuthenticated,
@@ -41,6 +42,8 @@ const TopbarDesktop = props => {
 
   useEffect(() => {
     setMounted(true);
+    if (listingType === "in-person") setActiveMenu("in-person");
+    else if (listingType === "venue") setActiveMenu("venues");
   }, []);
 
   const marketplaceName = appConfig.marketplaceName;
@@ -125,6 +128,7 @@ TopbarDesktop.propTypes = {
   currentUserHasListings: bool.isRequired,
   currentUser: propTypes.currentUser,
   currentPage: string,
+  listingType: string,
   isAuthenticated: bool.isRequired,
   onLogout: func.isRequired,
   notificationCount: number,

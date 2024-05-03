@@ -204,6 +204,7 @@ export const EditListingPageComponent = props => {
           mobileRootClassName={css.mobileTopbar}
           desktopClassName={css.desktopTopbar}
           mobileClassName={css.mobileTopbar}
+          listingType={currentListing?.attributes?.publicData?.listingType}
         />
         <EditListingWizard
           id="EditListingWizard"
